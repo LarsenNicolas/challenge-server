@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+      container_name: challange-serverDocker
+      restart: always
+      build: .
+      ports:
+        - "4000:4000"
+      links:
+        - mongo
+      volumes:
+        - .:/usr/src/app
+  mongo:
+    container_name: mongoChallenge
+    image: mongo
+    ports:
+      - "27017:27017"
